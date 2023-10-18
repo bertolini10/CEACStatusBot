@@ -34,3 +34,9 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
           TIMEZONE: ${{ secrets.TIMEZONE }}
         run: python trigger.py
+
+        - name: execute py test # run test.py
+        env:
+          LOCATION: ${{ secrets.LOCATION }}
+          NUMBER: ${{ secrets.NUMBER }}
+        run: python test.py
