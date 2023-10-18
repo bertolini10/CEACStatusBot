@@ -18,4 +18,4 @@ try:
 except KeyError:
     print("EMAIL Error")
 
-notificationManager.send()
+#notificationManager.send()
