@@ -1,4 +1,4 @@
-name: run main.py
+name: run test.py
 
 on:
   push:
@@ -33,4 +33,4 @@ jobs:
           TO: ${{ secrets.TO }}
           PASSWORD: ${{ secrets.PASSWORD }}
           TIMEZONE: ${{ secrets.TIMEZONE }}
-        run: python trigger.py
+        run: python test.py
