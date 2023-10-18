@@ -29,7 +29,7 @@ def query_status(location, application_num, captchaHandle:CaptchaHandle=OnnxCapt
         # -------NIV page------
         try:
             # 发送请求的代码
-            r = session.get(url=f"{ROOT}/ceacstattracker/status.aspx?App=NIV", headers=headers)
+            r = session.get(url=f"{ROOT}/ceacstattracker/status.aspx?App=IV", headers=headers)
         except Exception as e:
             # 处理连接错误异常
             print(e)
@@ -51,6 +51,8 @@ def query_status(location, application_num, captchaHandle:CaptchaHandle=OnnxCapt
         # Resolve captcha
         captcha_num = captchaHandle.solve(img_resp.content)
 
+        print(captcha_num)
+
         # Fill form
         def update_from_current_page(cur_page, name, data):
             ele = cur_page.find(name="input", attrs={"name": name})
@@ -67,7 +69,6 @@ def query_status(location, application_num, captchaHandle:CaptchaHandle=OnnxCapt
             "__VIEWSTATEGENERATOR": "DBF1011F",
             "__VIEWSTATEENCRYPTED": "",
             "ctl00$ContentPlaceHolder1$Visa_Application_Type": "NIV",
-            "ctl00$ContentPlaceHolder1$Location_Dropdown": location,
             "ctl00$ContentPlaceHolder1$Visa_Case_Number": application_num,
             "ctl00$ContentPlaceHolder1$Captcha": "34HDM",
             "LBD_VCID_c_status_ctl00_contentplaceholder1_defaultcaptcha": "a81747f3a56d4877bf16e1a5450fb944",
